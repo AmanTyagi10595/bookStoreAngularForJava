@@ -1,0 +1,15 @@
+<div class="header">
+  <!-- <a href="#default" class="logo">CompanyLogo</a> -->
+  <img src="../../assets/download.jpeg" alt="Book Store">
+  <div class="header-right">
+    <a *ngIf="user && user.name" [routerLink]="['/userProfile']">
+      <i class="fa fa-user"></i>
+      Hi {{ user.name }}
+    </a>
+    <a class="active" [routerLink]="['/deskBoard']">Home</a>
+    <a [routerLink]="['/listBooks']">List</a>
+    <a [routerLink]="['/addToCart']">Cart</a>
+    <a (click)="logOut()">LogOut</a>
+    <a [routerLink]="['/practiceForm']">Form</a>
+  </div>
+</div>

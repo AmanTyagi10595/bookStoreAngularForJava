@@ -1,0 +1,34 @@
+<div class="bookDetail">
+  <div class="container">
+    <div class=row>
+      <div class="col-md-3">
+      </div>
+      <div class="col-md-9">
+        <div class="row">
+          <div class="image">
+            <div *ngIf="bookInfo" class="forImage">
+              <div class="imgView">
+                <img src="data:{{bookInfo.image_url.contentType}};base64,{{bookInfo.image_url.image}}">
+              </div>
+              <p>
+                Price: <span>{{bookInfo?.price }}</span> <br />
+                Title: <span>{{bookInfo?.title }}</span> <br />
+                ID: <span>{{bookInfo?.code }}</span> <br />
+                Details: <span>{{bookInfo?.description }}</span> <br />
+              </p>
+              <!-- [queryParams]="bookInfo" -->
+              <span>
+                <button type="button" class="btn btn-primary" (click)=addToCartApi(bookInfo)>Add To Cart</button>
+              </span>
+              <span>
+                <button type="button" class="btn btn-primary">Buy Now</button>
+              </span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="color:red">{{message}}</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,108 @@
+<div class="container paper">
+  <form [formGroup]="bookInfo" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-25">
+        <label for="title">title:</label>
+      </div>
+      <div class="col-60">
+        <input type="text" placeholder="Book title" name="title" formControlName="title">
+      </div>
+      <!-- {{name.value}} -->
+    </div>
+    <!-- <div formGroupName="address"> -->
+    <div class="row">
+      <div class="col-25">
+        <label for="code">code:</label>
+      </div>
+      <div class="col-60">
+        <input type="text" placeholder="code" name="code" formControlName="code">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="genre">genre:</label>
+      </div>
+      <div class="col-60">
+        <input type="text" placeholder="genre" name="genre" formControlName="genre">
+      </div>
+    </div>
+    <!-- </div> -->
+
+    <div class="row">
+      <div class="col-25">
+        <label for="description">description:</label>
+      </div>
+      <div class="col-60">
+        <input type="text" placeholder="description" name="description" formControlName="description" name="description">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="author">author:</label>
+      </div>
+      <div class="col-60">
+        <input type="text" placeholder="author" name="author" formControlName="author">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="publisher">publisher:</label>
+      </div>
+      <div class="col-60">
+        <input type="text" name="publisher" placeholder="publisher" formControlName="publisher">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="pages">pages:</label>
+      </div>
+      <div class="col-60">
+        <input type="text" name="pages" placeholder="pages" formControlName="pages">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="image_url">image_url:</label>
+      </div>
+      <div class="col-60">
+        <input type="file" class="form-control" name="myFile" formControlName="myFile" (change)="imageUpload($event)">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="buy_url">buy_url:</label>
+      </div>
+      <div class="col-60">
+        <input type="text" name="buy_url" placeholder="buy_url" formControlName="buy_url">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="price">price:</label>
+      </div>
+      <div class="col-60">
+        <input type="text" name="price" placeholder="price" formControlName="price">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="count">count:</label>
+      </div>
+      <div class="col-60">
+        <input type="text" name="count" placeholder="count" formControlName="count">
+      </div>
+    </div>
+    <div class="row">
+      <span *ngIf="isForEdit==false">
+        <input type="submit" value="Submit" [disabled]="bookInfo.invalid">
+      </span>
+      <span *ngIf="isForEdit==true">
+        <input type="submit" value="Update">
+      </span>
+      <span style="color:red;">{{msg}}</span>
+    </div>
+    <div>All Books<a [routerLink]="['/listBooks']" class="backbtnlgn">AllBooks</a></div>
+  </form>
+  <!-- {{bookInfo.value |json}}
+  Statsu: {{bookInfo.status}} -->
+</div>

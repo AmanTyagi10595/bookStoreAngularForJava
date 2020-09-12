@@ -1,0 +1,109 @@
+<!-- <div class="deskBord">
+    <div>abck</div>
+    <div>abck</div>
+    <div>abck</div>
+  </div> -->
+
+
+<div class="deskBord">
+  <div class="container forLeftMargin">
+    <div class=row>
+      <div class="col-md-3">
+        <div class="sidenav forBox">
+          <div class="sideMargin">
+            <div class="sdf subSideMargin">
+              <section class="ssf">
+                <div class="adf2">
+                  <span>Filters</span>
+                </div>
+              </section>
+            </div>
+            <hr>
+            <div class="subSideMargin">
+              <section>
+                <div>
+                  <h5>CATEGORIES</h5>
+                </div>
+                <h5>Select Class</h5>
+                <mat-form-field>
+                  <mat-label>selected book</mat-label>
+                  <mat-select>
+                    <mat-option *ngFor="let food of foods" [value]="foods" (click)="onSelectClass(food)">
+                      {{food.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </section>
+            </div>
+            <hr style="margin-top: 7px;">
+
+            <div class="subSideMargin">
+              <section>
+                <h5>Price Limit</h5>
+                <div class="custom-slider forSliderCss">
+                  <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [(options)]="options" (click)='setSlidervalue(maxValue,minValue)'></ng5-slider>
+                </div>
+              </section>
+            </div>
+            <hr style="margin-top: 7px;">
+
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-9 forBox">
+        <div class="row">
+          <div class="col-md-4" *ngFor="let data of datas" routerLink="/bookDetail/{{data._id}}">
+            <div class="image" *ngIf="data && data.image_url && data.image_url.contentType && data.image_url.image">
+              <div class="imgView">
+                <!-- <img src="data:{{data.image_url.contentType}};base64,{{data.image_url.image}}"> -->
+                <img src="https://dummyimage.com/200x300/cccccc/040404.png">
+              </div>
+              <div>
+                <p>
+                  Price: <span>{{data.price }}</span> <br />
+                  Title: <span>{{data.title }}</span> <br />
+                  ID: <span>{{data.code }}</span> <br />
+                  Details: <span>{{data.description }}</span> <br />
+                </p>
+
+              </div>
+              <!-- <button type="submit" (click)="deskboardBook()">Add to cart</button>
+              <div class="_3md1dr">
+                <button class="wNrY5O" disabled=""> – </button>
+                <div class="_2zH4zg">
+                  <input type="text" value="1" class="_2csFM9">
+                </div>
+                <button class="wNrY5O"> + </button>
+              </div> -->
+            </div>
+          </div>
+          <!-- <div class="col-md-4">
+            <div class="image">
+              <div class="imgView"> <img src="../../assets/book.jpg" alt="img"></div>
+              <div>
+                <p>Book Name:fatter<span>price:20</span> <br />
+                  details <br />
+                  star:</p>
+
+              </div>
+              <button class="primary">Add to card</button>
+              <button type="submit" (click)="deskboardBook()">Update</button>
+            </div>
+          </div> -->
+        </div>
+      </div>
+      <div class="forPagination">
+        <nav>
+          <ul class="pagination">
+            <li class="page-item page-link" (click)="onPaginatorClick('previous')">Previous</li>
+            <Span *ngFor="let page of numberOfPages; index as i">
+              <li class="page-item page-link" (click)="onPaginatorClick(i)">{{i+1}}</li>
+            </Span>
+            <li class="page-item page-link" (click)="onPaginatorClick('next')">Next</li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
